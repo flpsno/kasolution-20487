@@ -1,0 +1,30 @@
+﻿<h2>Listagem de Produtos</h2>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Tipo</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (FN.Store.UI.Models.Produto produto in Model)
+        {
+            <tr>
+                <td>@produto.Nome</td>
+                <td>@produto.Preco.ToString("C2")</td>
+                <td>@produto.TipoProduto</td>
+                <td>
+                    <a class="btn btn-outline-success" href="#">Editar</a>
+                    <button class="btn btn-outline-danger">Excluir</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
