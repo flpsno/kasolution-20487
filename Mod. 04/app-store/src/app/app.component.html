@@ -1,0 +1,38 @@
+<div>
+  <form novalidate [formGroup]="meuForm">
+
+    <div>
+      <label >Email</label>
+      <input type="email" formControlName="email">
+    </div>
+
+    <div>
+        <label>Senha</label>
+        <input type="password" formControlName="senha">
+    </div>
+
+    <div>
+      <button [disabled]="meuForm.invalid" (click)="login()" type="button">Logar</button>
+    </div>
+  </form>  
+  
+</div>
+
+<hr>
+
+<h2>Listagem de Produtos</h2>
+
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Nome</td>
+    <td>Preco</td>
+  </tr>
+
+  <tr *ngFor="let prod of produtos">
+    <td>{{prod.id}}</td>
+    <td>{{prod.nome}}</td>
+    <td>{{prod.preco}}</td>
+  </tr>
+
+</table>
