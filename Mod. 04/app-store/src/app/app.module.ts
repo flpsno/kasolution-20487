@@ -6,10 +6,11 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, MenuComponent
   ],
   imports: [
     BrowserModule, ReactiveFormsModule, HttpClientModule, CommonModule

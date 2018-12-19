@@ -1,0 +1,12 @@
+* Pre requisito
+
+Nodejs.org - https://nodejs.org/en/
+Angular cli - https://cli.angular.io/
+
+Para rodar:
+
+1. Acesse a pasta do projeto frontend
+2. Num terminal, instale os pacotes do npm:
+	npm i
+3. Roda o projeto:
+	ng s --o
