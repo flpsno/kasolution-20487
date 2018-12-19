@@ -1,0 +1,76 @@
+<app-menu [token]="token" (tokenReturn)="refreshToken($event)"></app-menu>
+
+<hr>
+
+
+<div *ngIf="!!token" class="container">
+
+  <h2>Listagem de Produtos</h2>
+  <button class="btn btn-outline-secondary" (click)="obterProdutos()">Obter Produtos</button>
+
+  <div class="row mt-4">
+    <div class="col-md-8">
+
+
+
+      <table class="table">
+        <tr>
+          <td>Id</td>
+          <td>Nome</td>
+          <td>Preco</td>
+        </tr>
+
+        <tr *ngFor="let prod of produtos">
+          <td>{{prod.id}}</td>
+          <td>{{prod.nome}}</td>
+          <td>{{prod.preco}}</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+
+    <div class="col-md-4">
+      <form novalidate [formGroup]="produtoForm">
+        <div class="form-group">
+          <label>Id</label>
+          <input readonly type="text" formControlName="id" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <input type="file" (change)="handleFile($event.target.files[0])" formControlName="foto" class="form-control" accept="image/*">
+
+          <img [src]="previewBase64" width="150">
+
+        </div>
+
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" formControlName="nome" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Tipo</label>
+          <select formControlName="tipoProdutoId" class="form-control">
+            <option value="1">Alimento</option>
+            <option value="2">Higiene</option>
+            <option value="3">Vestuário</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preço</label>
+          <input type="number" formControlName="preco" class="form-control">
+        </div>
+
+        <div>
+          <button type="button" [disabled]="produtoForm.invalid" (click)="salvar()" class="btn btn-outline-success">Salvar</button>
+          <button type="button" (click)="limpar()" class="btn btn-outline-info">Cancelar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>
